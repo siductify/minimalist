@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naomi Minimalistic | Explore Life With Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-primary: #ffffff;
+            --accent-color: #f3f3f3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Video Background Styling */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 4rem;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-links a {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.2rem;
+            margin-left: 2.5rem;
+            transition: opacity 0.3s;
+            opacity: 0.7;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* Typography */
+        .hero-title {
+            text-align: center;
+        }
+
+        .hero-title h1 {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 300;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        .hero-title p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Marquee */
+        .marquee {
+            background: var(--accent-color);
+            color: #000;
+            padding: 2.5rem 0;
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .marquee-inner {
+            display: flex;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee span {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 400;
+            padding: 0 4rem;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Sections */
+        .section-padding {
+            padding: 10rem 4rem;
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 3/4;
+            background-color: #1a1a1a;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 4rem;
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.8rem;
+            letter-spacing: 0.1rem;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1.5rem 2rem; }
+            nav.scrolled { padding: 1rem 2rem; }
+            .section-padding { padding: 5rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo font-medium text-xl tracking-tighter uppercase">Naomi</div>
+        <div class="nav-links hidden md:block">
+            <a href="#work">Collection</a>
+            <a href="#about">Philosophy</a>
+            <a href="#contact">Inquiry</a>
+        </div>
+        <div class="md:hidden">
+            <span class="text-xs uppercase tracking-widest">Menu</span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="video-container">
+            <video autoplay muted loop playsinline id="bg-video">
+                <source src="https://www.pexels.com/download/video/32548580/" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="hero-title">
+            <h1 class="reveal">Naomi</h1>
+            <p class="reveal">Curating the space between</p>
+        </div>
+    </section>
+
+    <div class="marquee">
+        <div class="marquee-inner">
+            <span>Explore life with us</span>
+            <span>Explore life with us</span>
+            <span>Explore life with us</span>
+            <span>Explore life with us</span>
+            <span>Explore life with us</span>
+            <span>Explore life with us</span>
+        </div>
+    </div>
+
+    <section id="work" class="section-padding max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div class="reveal">
+                <div class="grid-item mb-8">
+                    <img src="https://images.unsplash.com/photo-1776186243326-1d467b258232?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Interior Design">
+                </div>
+                <div class="flex justify-between items-baseline border-b border-zinc-800 pb-4">
+                    <h3 class="text-xs uppercase tracking-[0.2em] font-medium">Structure</h3>
+                    <p class="font-serif italic text-zinc-500 text-sm">Monolith — Vol. 1</p>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay: 0.2s;">
+                <div class="grid-item mb-8">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop" alt="Minimalist Fashion">
+                </div>
+                <div class="flex justify-between items-baseline border-b border-zinc-800 pb-4">
+                    <h3 class="text-xs uppercase tracking-[0.2em] font-medium">Silhouette</h3>
+                    <p class="font-serif italic text-zinc-500 text-sm">Form & Function — 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding bg-[#0a0a0a]">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-serif mb-12 italic reveal">"Design is not just what it looks like, it's how it feels."</h2>
+            <p class="text-lg leading-relaxed opacity-60 reveal">
+                We believe that the most meaningful narratives are written in the margins. Naomi Minimalistic is a multidisciplinary studio that prioritizes the essential over the excessive. Our approach is rooted in the subtle balance of shadow and light, presence and absence.
+            </p>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="mb-12 flex justify-center space-x-12 uppercase text-[10px] tracking-[0.4em]">
+            <a href="#" class="hover:text-white transition">Instagram</a>
+            <a href="#" class="hover:text-white transition">Archive</a>
+            <a href="#" class="hover:text-white transition">Journal</a>
+        </div>
+        <p class="text-[10px] tracking-widest opacity-40 uppercase">© 2024 NAOMI MINIMALISTIC / LIFESTYLE STUDIO</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Auto-play handling for mobile and desktop
+        window.onload = () => {
+            const video = document.getElementById('bg-video');
+            if (video) {
+                video.play().catch(err => {
+                    console.log("Auto-play initiated manually.");
+                });
+            }
+        };
+    </script>
+</body>
+</html>
